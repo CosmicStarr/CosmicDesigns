@@ -1,0 +1,31 @@
+<app-header></app-header>
+<section class="user-profile-box container">
+    <div class="user-heading-container">
+        <h1 class="heading1">Your Orders</h1>
+        <div class="icon-position">
+            <input type="text" placeholder="search all orders" class="order-search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <button class="btn-search btn-forms"> Search</button>
+        </div>  
+    </div>
+    <nav class="menu-select">
+        <ul class="menu-list">
+            <li class="menu-list-select">
+                <a  (click)="assignComponent(userOptions)"> Orders</a>
+            </li>
+            <li class="menu-list-select">
+                <a  (click)="assignComponent('eats')"> Eat it again</a>
+            </li>
+        </ul>
+        <hr class="hr-line">
+    </nav>
+    <div class="order-select">
+       <label><span>3 orders</span> placed in</label> 
+        <select class="order-list-select">
+            <option class="order-option" value="">last 3 months</option>
+            <option class="order-option" value="6months">last 6 months</option>
+        </select>
+    </div>
+    <ng-container *ngComponentOutlet="userOptions"></ng-container>
+</section>
+<app-footer></app-footer>

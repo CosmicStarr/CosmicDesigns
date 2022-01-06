@@ -1,0 +1,112 @@
+.order-card-container{
+    margin-top: 4rem;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 2px solid orange;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.left-order-card{
+    display: flex;
+    gap: 3rem;
+}
+.right-order-card{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.labels-p{
+    line-height: 3rem;
+}
+.labels-p label{
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.labels-p p{
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+.labels-a a{
+    font-size: 1.8rem;
+}
+.order-card-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-left:2px solid orangered;
+    border-right:2px solid orangered;
+    border-bottom:2px solid orangered;
+}
+.left-bottom-card{
+    display: flex;
+    flex-direction: column;
+}
+.left-bottom-h2{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.img-container{
+    display: flex;
+    gap: 1rem;
+}
+.actual-img{
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../../assets/Images/logo2.jpg');
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    aspect-ratio: auto 100/100;
+}
+.h2-container{
+    margin-bottom: 1rem;
+}
+.product-desc{
+    font-size: 2rem;
+}
+
+.right-bottom-card{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 20%;
+}
+.right-botttom-button{
+    background-color: #a2b400;
+    // align-self: center;
+    padding: 0.8rem;
+    border: 1px solid gold; 
+    border-radius: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    width: 100%;
+    font-weight: 900;
+    color: #fff;
+}
+.right-botttom-button:first-child{
+    margin-bottom: 1rem;
+}
+
+.btn-search{
+    border-radius: 20%;
+    margin-left: 1rem;
+}
+.btn-forms{
+    background-color: #a2b400;
+    // align-self: center;
+    padding: 0.6rem;
+    border-radius: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+}
+.btn-form:hover{
+    background-color: #4169e1;
+    color: #45260a;
+}

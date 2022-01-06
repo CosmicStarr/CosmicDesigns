@@ -1,0 +1,96 @@
+.shopand-ordersummary-container{
+    justify-content: space-between;
+    align-items: center;
+    gap: 10rem;
+    margin-top: 10rem;
+    margin-bottom: 8rem;
+}
+.shoppingCart-container{
+    width: 80rem;
+}
+.shop-title{
+    margin-top: 5rem;
+}
+
+.total{
+    padding-right: 2rem;
+}
+.bottom-container{
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #a2b400;
+
+}
+.img-container{
+    margin-bottom: 1rem;
+}
+.actual-img{
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../../assets/Images/GrilledSalmon.jpg');
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    aspect-ratio: auto 100/100;
+    margin-top: 2rem;
+}
+.amount{
+    text-align: center;
+}
+.product-details{
+    margin-top: 3.5rem;
+    align-self: center;
+}
+.pName{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.pdetails{
+    font-size: 1.8rem;
+}
+
+.amount i{
+    font-size: 1.3rem;
+
+}
+.amountN{
+   font-size: 2rem;
+
+   margin-bottom: 1rem;
+}
+.amount button{
+    padding: .5rem;
+    margin-bottom: 1rem;
+    background-color:#a2b400;
+    border:none;
+    border-radius: 20%;
+}
+.price{
+    font-size: 1.9rem;
+    font-weight: 500;  
+}
+.total-price{ 
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.products-total-info{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.ptitle{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.quan{
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+}
+.quan2{
+    margin-bottom: 8rem;
+    text-align: end;
+}

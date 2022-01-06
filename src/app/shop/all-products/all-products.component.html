@@ -1,0 +1,76 @@
+<!-- use-css-flexbox -->
+<app-header></app-header>
+<section class="all-products-container container2">
+    <div class="top-of-container">
+        <header class="left-header">
+            <h1 class="header-title">Browse Products</h1>
+            <div class="searchBox-container">
+                <input type="text" placeholder="Search products" name="searchInput">
+                <i class="fa fa-search"></i>
+            </div>
+        </header>
+        <div class="right-header">
+          <a routerLink="">Find a Store &rarr;</a>
+        </div>
+    </div>
+    <div class="bottom-of-container">
+        <div class="bottom-left-side">
+            <div class="browse-by-category-container">
+               <h1 class="cat-die-header">Category</h1>
+               <br>
+               <hr>
+               <ul class="cat-die-list">
+                   <li>Meat</li>
+                   <li>Veg</li>
+                   <li>Milk</li>
+               </ul>
+            </div>
+            <div class="browse-by-dietary">
+               <h1 class="cat-die-header">Dietary</h1>
+               <br>
+               <hr>
+               <ul class="cat-die-list">
+                <li>Vegan</li>
+                <li>Gluten Free</li>
+                <li>Low-Fat</li>
+            </ul>
+            </div>
+        </div>
+            <!-- use-css-grid -->
+        <div class="bottom-right-side-container">
+            <div class="right-header-container">
+                <div class="products-header">
+                    <h1 class="bottom-right-heading">All Products</h1>
+                    <span>More than 200 found</span>
+                </div>
+                <div class="sort-column">
+                    <label class="sort-label">Sort</label>
+                    <select class="sort-column-select">
+                        <option value="">sort</option>
+                        <option>down</option>
+                        <option>up</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="bottom-right-side grid3 grid-col-4">
+                <div class="products">
+                    <img src="../assets/Images/redSnapper.jpg" alt="Red Snapper">
+                    <div class="product-info">
+                        <div class="product-Cat">
+                            <span class="CatTitle">Fried Meals</span> 
+                        </div>
+                        <p class="product-Title"> Red Snapper</p>
+                        <ul class="product-ETC">
+                            <li class="ETC"><i class="fa fa-fire"></i><p><strong>650</strong> calories</p></li>
+                            <li class="ETC"><i class="fa fa-spoon"></i><p> Nurtrition Score&reg;</p></li>
+                            <li class="ETC"><i class="fa fa-star"></i> <p><strong>4.9</strong> rating <strong> (567)</strong></p> </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
