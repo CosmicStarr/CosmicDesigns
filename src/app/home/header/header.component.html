@@ -3,17 +3,17 @@
     <nav class="nav-bar">
         <ul  class="nav-bar-list">
             <li>
-                <a class="nav-bar-list-link" routerLink="">Home</a>
+                <a class="nav-bar-list-link" routerLinkActive="active"  routerLink="">Home</a>
             </li>
             <li>
-                <a class="nav-bar-list-link" routerLink="/shop/about">About</a>
+                <a class="nav-bar-list-link" routerLinkActive="active"  routerLink="/shop/about">About</a>
             </li>
             <li>
-                <a class="nav-bar-list-link shop-link" routerLink="/shop/products">Shop</a>
+                <a class="nav-bar-list-link shop-link" routerLinkActive="active" routerLink="/shop/products">Shop</a>
             </li>
             <ng-container>
                 <li>
-                    <a class="nav-bar-list-link" routerLink="/user/register">Register</a>
+                    <a class="nav-bar-list-link" routerLinkActive="active"  routerLink="/user/register">Register</a>
                 </li>
             </ng-container>
             <ng-container>
@@ -21,43 +21,42 @@
                     <a class="nav-bar-list-link"><i class="fa fa-user"></i></a>
                     <ul class="dropdown">
                         <li>
-                            <a class="nav-bar-list-link" routerLink="/user/profile"> Account</a>
+                            <a class="nav-bar-list-link" routerLinkActive="active"  routerLink="/user/profile"> Account</a>
                         </li>
                         <li>
-                            <a class="nav-bar-list-link" routerLink="/user/settings"> Settings</a>
+                            <a class="nav-bar-list-link" routerLinkActive="active"  routerLink="/user/settings"> Settings</a>
                         </li>
                         <li>
-                            <a class="nav-bar-list-link" routerLink=""> Log Out</a>
+                            <a class="nav-bar-list-link" routerLinkActive="active"  routerLink=""> Log Out</a>
                         </li>
                     </ul>
                 </div>
             </ng-container>
-            <ng-container >
-                <div class="dropdown-show2">
-                    <a><i class="fa fa-shopping-cart"></i></a>
+            <ng-container *ngIf="(ShoppingCart$|async) as Cart">
+                <div class="dropdown-show2" *ngIf="(ShoppingCartTotal$|async) as Totals">
+                    <a>{{Cart.shoppingCartItems.length}}<i class="fa fa-shopping-cart"></i></a>
                     <div class="dropdown2">
-                        <div class="top">
+                        <div class="top" *ngFor="let item of Cart.shoppingCartItems">
                             <div class="left-top">
                                 <div class="img-container" role="img">
-                                    <div class="actual-img">
-                                    </div>                  
+                                    <img src="{{item.photoUrl}}" alt="{{item.itemName}}" class="actual-img">               
                                 </div>
                             </div>
                             <div class="right-top">
-                                <h3>productsname</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur </p>
+                                <h3>{{item.itemName}}</h3>
+                                <p>{{item.category}} </p>
                                 <div class="QTYInfo">
                                     <p>Qty:</p>
-                                    <p>3</p>
+                                    <p>{{item.amount}}</p>
                                 </div>
                                 <div class="fatrash">
-                                    <i class="fa fa-trash"></i>
+                                    <i (click)="removeItems(item)" class="fa fa-trash"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="shopinfo">
                             <p>Sub-Total</p>
-                            <p>$400.00</p>
+                            <p>{{Totals.subTotal|currency}}</p>
                         </div>
                         <div class="bottom">
                            <button class="btnBag"><a routerLink="/shoppingcart/cart">View Bag</a></button> 

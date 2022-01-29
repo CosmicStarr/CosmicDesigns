@@ -1,3 +1,46 @@
+
+@media screen and (max-width:17.5em) {
+    //this is not working!
+    .icon-position{
+        padding-left: 1rem auto !important;
+    }
+}
+@media screen and (max-width:20em) {
+    .user-heading-container{
+        display: grid !important;
+        text-align: center !important;
+        gap: 3rem;
+    }
+}
+@media screen and (max-width:23em) {
+    .user-heading-container{
+        display: grid !important;
+        text-align: center !important;
+        gap: 3rem;
+    }
+}
+@media screen and (max-width:26em) {
+    .user-heading-container{
+        display: grid !important;
+        text-align: center !important;
+        gap: 3rem;
+    }
+}
+@media screen and (max-width:34em) {
+    .user-heading-container{
+        display: grid !important;
+        text-align: center !important;
+        gap: 3rem;
+    }
+
+}
+
+.sorry{
+    margin-top: 4rem;
+}
+.user-profile-box{
+    margin-bottom: 4rem;
+}
 .user-heading-container{
     display: flex;
     justify-content: space-around;
@@ -10,6 +53,22 @@
     align-items: center;
     position: relative;
 }
+.searchList{
+    list-style: none;
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+    padding: 1rem;
+    background-color: chartreuse;
+    color: darkblue;
+}
+.list-container{
+    position: absolute;
+    top: 4rem;
+}
+.searchList li{
+    margin-top: 1rem;
+}
+
 .heading1{
     font-size: 4rem;
     margin-top: 1rem;
@@ -60,11 +119,11 @@
     margin-top: 2rem;
     display: flex;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     gap: 2rem;
 }
 .order-select label{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 500;
     margin-left: 2rem;
 }
@@ -84,8 +143,9 @@
 
 .btn-search{
     border-radius: 20%;
-    margin-left: 1rem;
+    margin-left: .5rem;
 }
+
 .btn-forms{
     background-color: #a2b400;
     // align-self: center;

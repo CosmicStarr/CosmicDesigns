@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { IShoppingCart, IShoppingCartTotals } from 'src/app/models/shoppingCart';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-ordersummary',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersummaryComponent implements OnInit {
 
-  constructor() { }
+  ShoppingCart$:Observable<IShoppingCart>
+  ShoppingCartTotal$:Observable<IShoppingCartTotals>
+  constructor(private shopService:ShoppingCartService) { }
 
   ngOnInit(): void {
+    this.ShoppingCartTotal$ = this.shopService.ShoppingCartTotal$
+    this.ShoppingCart$ = this.shopService.ShoppingCart$
   }
 
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IActualOrder } from 'src/app/models/Orders';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-eatagain',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EatagainComponent implements OnInit {
 
-  constructor() { }
+  @Input()order:IActualOrder[]=[]
 
+  constructor(private orderService:OrdersService) {}
   ngOnInit(): void {
+
   }
+
+
+
 
 }

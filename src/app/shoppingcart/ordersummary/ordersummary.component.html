@@ -2,7 +2,7 @@
     <div class="actual-order-container">
         <div class="order-button">
             <button>Place your Order</button>
-            <p class="privacy">by placing your order, you agree to SunStarr <a [routerLink]="['/routePath']" >privacy notice</a> and <a [routerLink]="['/routePath']">condition of use</a>.</p>
+            <p class="privacy">by placing your order, you agree to SunStarr <a routerLink="" >privacy notice</a> and <a routerLink="">condition of use</a>.</p>
         </div>
         <h1>Order Summary</h1>
         <div class="order-summary-info">
@@ -14,13 +14,15 @@
       
                 <h3>Order Total:</h3>
             </div>
-            <div class="right-info">
-                <p>1</p>
+            <div class="right-info"*ngIf="(ShoppingCartTotal$|async) as Cart">
+                <ng-container *ngIf="(ShoppingCart$|async) as shopCart" >
+                    <p>{{shopCart.shoppingCartItems.length}}</p>
+                </ng-container>
                 <p>$0.00</p>
-                <p class="total-tax">$499.00</p>
-                <p class="est-tax">$11.99</p>
+                <p class="total-tax">{{Cart.subTotal|currency}}</p>
+                <p class="est-tax">{{Cart.tax |currency}}</p>
            
-                <h3 class="total-order">$510.99</h3>
+                <h3 class="total-order">{{Cart.total |currency}}</h3>
             </div>
         </div>
     </div>

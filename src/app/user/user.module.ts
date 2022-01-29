@@ -9,6 +9,8 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { EatagainComponent } from './eatagain/eatagain.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HomeModule } from '../home/home.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -28,7 +30,11 @@ import { HomeModule } from '../home/home.module';
     CommonModule,
     UserRoutingModule,
     MatMenuModule,
-    HomeModule
+    HomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
+
   ],
   entryComponents:[
     UserOrdersComponent,

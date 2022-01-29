@@ -10,10 +10,11 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
 const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'orders',component:UserOrdersComponent},
-  {path:'eat-again',component:EatagainComponent},
   {path:'settings',component:SettingsComponent},
-  {path:'profile',component:UserAccountComponent},
+  {path:'profile',component:UserAccountComponent,children:[
+    {path:'orders',component:UserOrdersComponent},
+    {path:'eatagain',component:EatagainComponent},
+  ]},
 
 ];
 

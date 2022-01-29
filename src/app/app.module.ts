@@ -11,6 +11,9 @@ import { MoreFeatComponent } from './more-feat/more-feat.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 
@@ -31,7 +34,9 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule,
+
   ],
   exports:[
  

@@ -3,29 +3,51 @@
     <div class="user-heading-container">
         <h1 class="heading1">Your Orders</h1>
         <div class="icon-position">
-            <input type="text" placeholder="search all orders" class="order-search">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <button class="btn-search btn-forms"> Search</button>
+            <input (keyup.enter)="onSearch()" #Search type="text" placeholder="search all orders" class="order-search" [(ngModel)]="term" name="term">
+            <ng-container *ngIf="Search.value">
+                <i (click)="onReset()" class="fa fa-times-circle x"></i>
+            </ng-container>
+            <ng-container *ngIf="!Search.value">
+                <i class="fa fa-search"></i>
+            </ng-container>
+            <button (click)="onSearch()" class="btn-search btn-forms"> Search</button>
+            <!-- <ul *ngIf="term" class="searchList">
+                <li *ngFor="let item of orderedItem | filter : term">
+                   <a (click)="onSearch()">
+                        {{item.productName}}
+                   </a>
+               </li>
+            </ul> -->
         </div>  
+
     </div>
     <nav class="menu-select">
         <ul class="menu-list">
             <li class="menu-list-select">
-                <a  (click)="assignComponent(userOptions)"> Orders</a>
+                <a (click)="toggleMenu2()" [routerLink]="['/user/orders']"> Orders</a>
             </li>
             <li class="menu-list-select">
-                <a  (click)="assignComponent('eats')"> Eat it again</a>
+                <a (click)="toggleMenu()" [routerLink]="['/user/eatagain']"> Eat it again</a>
             </li>
         </ul>
         <hr class="hr-line">
     </nav>
     <div class="order-select">
-       <label><span>3 orders</span> placed in</label> 
-        <select class="order-list-select">
-            <option class="order-option" value="">last 3 months</option>
-            <option class="order-option" value="6months">last 6 months</option>
+       <label><span>{{order?.length}} orders</span> placed in</label> 
+        <select class="order-list-select" (change)="onSortSelected($event.target.value)">
+            <option *ngFor="let item of sortOptions" class="order-option" [value]="item.value">
+                {{item.name}}
+            </option>
         </select>
     </div>
-    <ng-container *ngComponentOutlet="userOptions"></ng-container>
+    <ng-container *ngIf="order.length == 0">
+        <h4 class="sorry">No orders placed within this time period</h4>
+    </ng-container>
+    <ng-container *ngIf="showMenu == 'true'">
+        <app-eatagain *ngFor="let item of order" [item]="order"></app-eatagain>
+    </ng-container>
+    <ng-container *ngIf="showMenu == 'false'">
+        <app-user-orders *ngFor="let item of order" [item]="item"></app-user-orders>
+    </ng-container>
 </section>
 <app-footer></app-footer>
