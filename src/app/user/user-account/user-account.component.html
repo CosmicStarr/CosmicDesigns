@@ -40,7 +40,7 @@
             </option>
         </select>
     </div>
-    <ng-container *ngIf="order.length == 0">
+    <ng-container *ngIf="!order">
         <h4 class="sorry">No orders placed within this time period</h4>
     </ng-container>
     <ng-container *ngIf="showMenu == 'true'">
