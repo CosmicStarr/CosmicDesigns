@@ -1,9 +1,7 @@
-import { query } from '@angular/animations';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../environments/environment.prod';
 import { IBrand } from '../models/brand';
 import { ICategory } from '../models/category';
 import { PaginatedResults } from '../models/pagination';
@@ -15,7 +13,7 @@ import { IProducts } from '../models/products';
 })
 export class ProductsService {
   baseUrl = environment.baseUrl;
-  PaginatedResult?:PaginatedResults<IProducts[]> = new PaginatedResults<IProducts[]>()
+  PaginatedResult:PaginatedResults<IProducts[]> = new PaginatedResults<IProducts[]>()
   header = new HttpHeaders({ Authorization: 'Bearer ' + localStorage.getItem('token'),})
   constructor(private http:HttpClient) { }
   getProducts(sunParams?:StarrParams){
@@ -38,12 +36,13 @@ export class ProductsService {
       params = params.append('pageSize',sunParams.pageSize.toString());
       params = params.append('TotalItems',sunParams.TotalItems.toString()); 
     }
-    return this.http.get<IProducts[]>(this.baseUrl + 'Products/Products',{ observe:'response', params, headers: this.header})
+    return this.http.get<any>(this.baseUrl + 'Products/Products',{ observe:'response', params, headers: this.header})
     .pipe(
       map(response =>{
         this.PaginatedResult.result = response.body;
-        if(response.headers.get('Pagination') !== undefined){
-          this.PaginatedResult.Pagination = JSON.parse(response.headers.get('Pagination'));
+        if(response.headers.get('Pagination') !== undefined || response.headers.get('Pagination') == null){
+    
+          // this.PaginatedResult.Pagination = JSON.parse(response.headers.get('Pagination'));
         }
         return this.PaginatedResult
       },(error: any)=>{

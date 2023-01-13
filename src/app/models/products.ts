@@ -3,10 +3,10 @@ export interface IProducts{
     name: string;
     description: string;
     price: number;
-    isOnSale?: boolean;
-    isAvailable?: boolean;
+    isOnSale: boolean;
+    isAvailable: boolean;
     categoryDTO?:string;
-    brandDTO?:string;
-    photosDTO?:string
-    ratings?:number
+    brandDTO:string;
+    photosDTO:string
+    ratings:number
 }
