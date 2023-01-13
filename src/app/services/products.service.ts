@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -37,7 +38,7 @@ export class ProductsService {
       params = params.append('pageSize',sunParams.pageSize.toString());
       params = params.append('TotalItems',sunParams.TotalItems.toString()); 
     }
-    return this.http.get<IProducts[]>(this.baseUrl + 'Products',{ observe:'response', params, headers: this.header})
+    return this.http.get<IProducts[]>(this.baseUrl + 'Products/Products',{ observe:'response', params, headers: this.header})
     .pipe(
       map(response =>{
         this.PaginatedResult.result = response.body;
@@ -61,5 +62,9 @@ export class ProductsService {
 
   getBrands(){
     return this.http.get<IBrand[]>(this.baseUrl + 'Products/Brand')
+  }
+
+  postRatings(id:number,rating:number){ 
+    return this.http.post<IProducts>(this.baseUrl + 'Products/ratings/'+ id,rating)
   }
 }

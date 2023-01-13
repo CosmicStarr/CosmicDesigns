@@ -8,4 +8,5 @@ export interface IProducts{
     categoryDTO?:string;
     brandDTO?:string;
     photosDTO?:string
+    ratings?:number
 }

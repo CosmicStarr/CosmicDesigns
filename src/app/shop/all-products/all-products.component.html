@@ -10,7 +10,7 @@
                     <ul *ngIf="term" class="searchList">
                         <li *ngFor="let item of products | filter : term">
                            <a (click)="onSearch()">
-                                 {{item?.name}}: {{item.categoryDTO}}
+                                {{item.categoryDTO}} : {{item?.name}}
                            </a>
                        </li>
                     </ul>
@@ -78,6 +78,21 @@
                         <img src="{{item.photosDTO || '../assets/Images/imgPlaceHolder612x612.jpg'}}" alt="{{item.name}}">
                     </a>
                     <div class="product-info">
+                        <div class="ratingDiv">
+                            <star-rating 
+                            [value]="item?.ratings" 
+                            [totalstars]="5" 
+                            checkedcolor="gold" 
+                            uncheckedcolor="black" 
+                            size="24px" 
+                            [readonly]="false" 
+                            (rate)="onRate($event,item.productsId)"></star-rating>
+                            <ng-container *ngIf="item.ratings > 20">
+                                <span>(20+)</span> 
+                            </ng-container>
+                         
+                        </div>
+
                         <div class="product-Cat">
                             <span class="CatTitle" 
                             [ngClass]="{'colorBlue':item.categoryDTO == 'Keto',

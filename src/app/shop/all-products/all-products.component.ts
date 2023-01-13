@@ -1,6 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { StarRatingComponent } from 'ng-starrating';
 import { IBrand } from 'src/app/models/brand';
 import { ICategory } from 'src/app/models/category';
 import { IPagination } from 'src/app/models/pagination';
@@ -27,14 +28,29 @@ export class AllProductsComponent implements OnInit {
     {name:'Price: Low to High',value:'priceAsc'},
     {name:'Price: High to Low',value:'priceDsc'}
   ]
-  searchForm:FormGroup
-  constructor(private productService:ProductsService) { }
-
+  constructor(private productService:ProductsService,private route:ActivatedRoute) { }
+  
   ngOnInit(): void {
     this.getAllProducts()
     this.getCategory()
     this.getbrands()
+    
   }
+
+  //add the productId
+  onRate($event:{oldValue:number, newValue:number},productId:number) {
+    // alert(`Old Value:${$event.oldValue}, 
+    //   New Value: ${$event.newValue}, 
+    //   Checked Color: ${$event.starRating.checkedcolor}, 
+    //   Unchecked Color: ${$event.starRating.uncheckedcolor},
+    //   ${productId}`);
+    this.productService.postRatings(productId,$event.newValue).subscribe((results:IProducts)=>{
+      console.log(results)
+    },error =>{
+      console.log(error)
+    });  
+  }
+
   onSearch(){
     this.sunParams.search = this.SearchBar.nativeElement.value
     this.getAllProducts()

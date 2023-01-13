@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './all-products/product-details/product-
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RatingModule } from 'ng-starrating';
 
 
 
@@ -24,7 +25,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PaginationModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    RatingModule
   ]
 })
 export class ShopModule { }

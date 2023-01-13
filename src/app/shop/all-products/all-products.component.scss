@@ -386,7 +386,7 @@
     font-size: 1.8rem;
 }
 .cat-die-list{
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 500;
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -465,3 +465,8 @@
         color: #4169e1 !important;
     }
 }
+.ratingDiv{
+    display: flex;
+    justify-content: space-between;
+}
+
